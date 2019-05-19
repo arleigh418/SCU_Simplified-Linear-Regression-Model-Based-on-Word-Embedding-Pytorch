@@ -102,10 +102,7 @@ def train():
         print ('Epoch [{}], Loss_trend: {:.4f},Loss_trade: {:.4f}'.format(epoch, loss_trend,loss_trade))
     b=0
     test_trade,test_trend = test(b,model,x_text_yy,word_to_ix)
-    trade_pre = pd.DataFrame(test_trade)
-    trade_pre.to_csv('trade_pred.csv')
-    trend_pre = pd.DataFrame(test_trend)
-    trend_pre.to_csv('trend_pred.csv')
+    
     
         
 
@@ -151,10 +148,8 @@ def test(count2,model,text2,word_to_ix2):
         
         count2+=1
         test_trade,test_trend = model(to_ix)
-        storge.append(test_trade.item())
-        storge2.append(test_trend.item())
         
-    return storge,storge2
+    return test_trade.item(),test_trend.item()
     
     
     
