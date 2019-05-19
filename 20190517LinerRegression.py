@@ -140,14 +140,17 @@ def train_every_epochs(loss_avg_trade,loss_avg_trend,count,model,text,trade,tren
 
 def test(count,model,text,word_to_ix):
     model.eval()
-    
+    test_trade_list = []
+    test_trend_list = []
     for x in text:    
         to_ix = prepare_sequence(x,word_to_ix).cuda()
         
         count+=1
         test_trade,test_trend = model(to_ix)
+        test_trade_list.append(test_trade.item())
+        test_trend_list.append(test_trend.item())
         
-    return test_trade.item(),test_trend.item()
+    return test_trade_list,test_trend_list
     
     
     
