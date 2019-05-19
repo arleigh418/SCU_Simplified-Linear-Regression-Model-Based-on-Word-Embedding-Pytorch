@@ -139,14 +139,13 @@ def train_every_epochs(loss_avg_trade,loss_avg_trend,count,model,text,trade,tren
     return loss_fuc_trade,loss_fuc_trend
 
 
-def test(count2,model,text2,word_to_ix2):
+def test(count,model,text,word_to_ix):
     model.eval()
-    storge= []
-    storge2 = []
-    for x in text2:    
-        to_ix = prepare_sequence(x,word_to_ix2).cuda()
+    
+    for x in text:    
+        to_ix = prepare_sequence(x,word_to_ix).cuda()
         
-        count2+=1
+        count+=1
         test_trade,test_trend = model(to_ix)
         
     return test_trade.item(),test_trend.item()
