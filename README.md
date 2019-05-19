@@ -5,4 +5,6 @@
 
 2.The purpose of this practice is to predict trading suggest and the stock price higher or lower based on stock market news.
 
-3.There may be some mistakes or errors in this practice. If there is any improvement or suggest, please feel free to contact me at any time. I will be very grateful.
+3.If you are not using cuda(),please delete it.
+
+4.There may be some mistakes or errors in this practice. If there is any improvement or suggest, please feel free to contact me at any time. I will be very grateful.
