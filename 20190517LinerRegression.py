@@ -45,12 +45,11 @@ def prepare_sequence(seq, to_ix, cuda=True):
     remainderWords = list(filter(lambda a: a in to_ix, seq_list))
 
     var = autograd.Variable(torch.LongTensor([to_ix[w] for w in remainderWords]))
-#     print('var:',var)
     return var
 
 def build_token_to_ix(sentences):
     token_to_ix = dict()
-    # print(len(sentences))
+   
     for sent in sentences:
         sent = str(sent)
         for token in sent.split(' '):
@@ -74,12 +73,10 @@ class LinerRegression(nn.Module):
         super(LinerRegression, self).__init__()
         self.word_embeddings = nn.Embedding(vocab_size, embedding_dim)
         self.hidden1label = nn.Linear(embedding_dim , 2)
-        # self.hidden1labe2 = nn.Linear(embedding_dim , 1)
+       
     def forward(self, sentence):
         embeds = self.word_embeddings(sentence)
-        # x = embeds.view(len(sentence), 1, -1)
-#         print(embeds.size())
-#         print(x.size())
+   
         y  = self.hidden1label(embeds[-1])
        
         return y
@@ -94,17 +91,14 @@ def train():
     
     optimizer = torch.optim.Adam(model.parameters(),lr = 1e-3) 
     loss_function = nn.MSELoss()
-    # test_trade_store = []
-    # test_trend_store = []
+   
 
     for epoch in range(epochs):
         c=0
         loss_avg_trade = 0 
         loss_avg_trend = 0
         loss_trade,loss_trend = train_every_epochs(loss_avg_trade,loss_avg_trend,c,model,x_text_gg,trade,trend,loss_function,optimizer,word_to_ix)
-        # if epoch % 10 == 0 and epoch != 0:
-        #         for param_group in model.parameters():
-        #                 param_group['lr'] = param_group['lr'] * 0.8
+       
         print ('Epoch [{}], Loss_trend: {:.4f},Loss_trade: {:.4f}'.format(epoch, loss_trend,loss_trade))
     b=0
     test_trade,test_trend = test(b,model,x_text_yy,word_to_ix)
@@ -118,7 +112,7 @@ def train():
 
 def train_every_epochs(loss_avg_trade,loss_avg_trend,count,model,text,trade,trend,loss_function,optimizer,word_to_ix):
     
-#     model.train()
+
     for i in text:
 
         to_ix = prepare_sequence(i,word_to_ix).cuda()
