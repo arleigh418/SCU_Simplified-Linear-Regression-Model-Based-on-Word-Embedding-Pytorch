@@ -119,8 +119,7 @@ def train_every_epochs(loss_avg_trade,loss_avg_trend,count,model,text,trade,tren
         b = np.array(trend[count])
         trade_real = torch.from_numpy(a).type(torch.FloatTensor).cuda()
         trend_real = torch.from_numpy(b).type(torch.FloatTensor).cuda()
-        trade_real = trade_real.view(-1,1,1)
-        trend_real = trend_real.view(-1, 1,1)
+        
         
         model.zero_grad()
         loss_trade = loss_function(pred_trade,trade_real)
