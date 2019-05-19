@@ -6,7 +6,7 @@ import torch
 from torch import nn
 from torch import optim
 import torch.autograd as autograd
-
+from torch import cuda
 
 jieba.load_userdict('new_words.txt')
 
