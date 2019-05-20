@@ -7,8 +7,8 @@
 
 3.If you are not using cuda(),please delete it.
 
-4.The score of trading suggest is between 1-10 .[Sell it(1)----------------------buy it(10)]
+4.The score of trading suggest is between 1-10 : Sell it(1)<---------------------->buy it(10)
 
-5.The score of stock price higher or lower is between 1-10 too. [Will lower(1)----------------------Will higher(10)]
+5.The score of stock price higher or lower is between 1-10 too : Will lower(1)<---------------------->Will higher(10)
 
 6.There may be some mistakes or errors in this practice. If there is any improvement or suggest, please feel free to contact me at any time. I will be very grateful.
