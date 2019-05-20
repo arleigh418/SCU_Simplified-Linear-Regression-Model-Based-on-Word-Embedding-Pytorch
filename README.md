@@ -1,4 +1,4 @@
-# Simplified-Linear-Regression-Model-Based-on-Word-Embedding---Pytorch-Pratice
+# Simplified-Linear-Regression-Model-Based-on-Word-Embedding---Pytorch
 
 
 1.This is for practice.Training & Test data is not provided but provides some simple examples for reference.
